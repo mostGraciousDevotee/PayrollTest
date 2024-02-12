@@ -1,0 +1,15 @@
+C:\Faikar\Software Engineering\C#Git\Payroll\PayrollTest\bin\Debug\net6.0\PayrollTest.exe
+C:\Faikar\Software Engineering\C#Git\Payroll\PayrollTest\bin\Debug\net6.0\PayrollTest.deps.json
+C:\Faikar\Software Engineering\C#Git\Payroll\PayrollTest\bin\Debug\net6.0\PayrollTest.runtimeconfig.json
+C:\Faikar\Software Engineering\C#Git\Payroll\PayrollTest\bin\Debug\net6.0\PayrollTest.dll
+C:\Faikar\Software Engineering\C#Git\Payroll\PayrollTest\bin\Debug\net6.0\PayrollTest.pdb
+C:\Faikar\Software Engineering\C#Git\Payroll\PayrollTest\obj\Debug\net6.0\PayrollTest.csproj.AssemblyReference.cache
+C:\Faikar\Software Engineering\C#Git\Payroll\PayrollTest\obj\Debug\net6.0\PayrollTest.GeneratedMSBuildEditorConfig.editorconfig
+C:\Faikar\Software Engineering\C#Git\Payroll\PayrollTest\obj\Debug\net6.0\PayrollTest.AssemblyInfoInputs.cache
+C:\Faikar\Software Engineering\C#Git\Payroll\PayrollTest\obj\Debug\net6.0\PayrollTest.AssemblyInfo.cs
+C:\Faikar\Software Engineering\C#Git\Payroll\PayrollTest\obj\Debug\net6.0\PayrollTest.csproj.CoreCompileInputs.cache
+C:\Faikar\Software Engineering\C#Git\Payroll\PayrollTest\obj\Debug\net6.0\PayrollTest.dll
+C:\Faikar\Software Engineering\C#Git\Payroll\PayrollTest\obj\Debug\net6.0\refint\PayrollTest.dll
+C:\Faikar\Software Engineering\C#Git\Payroll\PayrollTest\obj\Debug\net6.0\PayrollTest.pdb
+C:\Faikar\Software Engineering\C#Git\Payroll\PayrollTest\obj\Debug\net6.0\PayrollTest.genruntimeconfig.cache
+C:\Faikar\Software Engineering\C#Git\Payroll\PayrollTest\obj\Debug\net6.0\ref\PayrollTest.dll
