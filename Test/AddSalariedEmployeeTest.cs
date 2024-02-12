@@ -1,6 +1,6 @@
-class PayrollTest
+class AddSalariedEmployeeTest : BaseTest
 {
-    public bool TestAddSalariedEmployee()
+    public override bool Test()
     {
         bool nameAdded;
         bool paymentAdded;
@@ -20,7 +20,7 @@ class PayrollTest
 
         Employee? employee = Database.GetEmployee(employeeID);
 
-        Assert.AreNotNull<Employee>
+        Assert.IsNotNull<Employee>
         (
             employee,
             "Failed to add employee!"
@@ -38,19 +38,19 @@ class PayrollTest
             "Failed to add employee name"
         );
 
-        scheduleAdded = Assert.AreNotNull<PaymentSchedule>
+        scheduleAdded = Assert.IsNotNull<PaymentSchedule>
         (
             employee.PaymentSchedule! as MonthlySchedule,
             "Failed to add employee payment schedule"
         );
 
-        paymentAdded = Assert.AreNotNull<Payment>
+        paymentAdded = Assert.IsNotNull<Payment>
         (
             employee.Payment as SalariedPayment,
             "Failed to add salaried payment"
         );
 
-        methodAdded = Assert.AreNotNull<PaymentMethod>
+        methodAdded = Assert.IsNotNull<PaymentMethod>
         (
             employee.PaymentMethod as HoldMethod,
             "Failed to add hold method!"

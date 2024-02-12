@@ -6,6 +6,11 @@ static class Database
     {
         _employeeDictionary.Add(employee.ID, employee);
     }
+
+    public static void DeleteEmployee(int id)
+    {
+        _employeeDictionary.Remove(id);
+    }
     
     public static Employee? GetEmployee(int id)
     {

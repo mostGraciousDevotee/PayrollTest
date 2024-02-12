@@ -1,8 +1,21 @@
 static class Assert
 {
-    public static bool AreNotNull<T>(T? obj, string message)
+    public static bool IsNotNull<T>(T? obj, string message)
     {
         if (obj != null)
+        {
+            return true;
+        }
+        else
+        {
+            Console.WriteLine(message);
+            return false;
+        }
+    }
+
+    public static bool IsNull<T>(T? obj, string message)
+    {
+        if (obj == null)
         {
             return true;
         }
