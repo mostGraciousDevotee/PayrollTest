@@ -1,19 +1,20 @@
-class AddSalariedEmployeeTest : EmployeeTest
-{
-    double _salary = 1000.0f;
-    
-    public AddSalariedEmployeeTest
+class AddHourlyEmployeeTest : EmployeeTest
+{   
+    public AddHourlyEmployeeTest
     (
         int id,
         string name,
         string address
-    ) : base 
+    )
+    : base
     (
         id,
         name,
         address
-    ) {}
-    
+    )
+    {
+    }
+
     public override bool Test()
     {
         bool nameAdded;
@@ -21,30 +22,30 @@ class AddSalariedEmployeeTest : EmployeeTest
         bool scheduleAdded;
         bool methodAdded;
         
-        int employeeID = 1;
-        var addSalariedEmployee = new AddSalariedEmployee
+        int employeeID = 2;
+        var addHourlyEmployee = new AddHourlyEmployee
         (
             _id,
             _name,
             _address,
-            _salary
+            250.0f
         );
 
-        addSalariedEmployee.Execute();
+        addHourlyEmployee.Execute();
 
         Employee? employee = Database.GetEmployee(employeeID);
 
         Assert.IsNotNull<Employee>
         (
             employee,
-            "Failed to add employee!"
+            "Failed to get employee"
         );
 
         if (employee == null)
         {
             return false;
         }
-        
+
         nameAdded = Assert.AreEqual<string>
         (
             _name,
@@ -54,13 +55,13 @@ class AddSalariedEmployeeTest : EmployeeTest
 
         scheduleAdded = Assert.IsNotNull<PaymentSchedule>
         (
-            employee.PaymentSchedule! as MonthlySchedule,
+            employee.PaymentSchedule! as WeeklySchedule,
             "Failed to add employee payment schedule"
         );
 
         paymentAdded = Assert.IsNotNull<Payment>
         (
-            employee.Payment as SalariedPayment,
+            employee.Payment as HourlyPayment,
             "Failed to add salaried payment"
         );
 

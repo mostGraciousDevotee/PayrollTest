@@ -1,5 +1,14 @@
-class DeleteEmployeeTest : BaseTest
+class DeleteEmployeeTest : EmployeeTest
 {
+    public DeleteEmployeeTest
+    (
+        int id,
+        string name,
+        string address
+    ) : base(id, name, address)
+    {
+    }
+
     public override bool Test()
     {
         bool deletedEmployee;
@@ -7,9 +16,9 @@ class DeleteEmployeeTest : BaseTest
         int employeeID = 3;
         var addSalariedEmployee = new AddSalariedEmployee
         (
-            employeeID,
-            "Eldy",
-            "Bandung",
+            _id,
+            _name,
+            _address,
             1000.0f
         );
         var deleteEmployee = new DeleteEmployee(employeeID);
