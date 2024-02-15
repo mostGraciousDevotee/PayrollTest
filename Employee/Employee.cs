@@ -17,8 +17,13 @@ class Employee
     }
 
     public int ID => _id;
-    public string Name => _name;
 
+    public string Name
+    {
+        get => _name;
+        set => _name = value;
+    }
+    
     public Payment? Payment
     {
         get => _payment;
