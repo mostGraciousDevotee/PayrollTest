@@ -25,4 +25,11 @@ testRunner.AddTest(new AddTimeCardTest
     "Medan"
 ));
 
+testRunner.AddTest(new AddServiceChargeTest
+(
+    5,
+    "Ony",
+    "Surabaya"
+));
+
 testRunner.Run();

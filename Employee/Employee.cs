@@ -7,6 +7,7 @@ class Employee
     Payment? _payment;
     PaymentSchedule? _paymentSchedule;
     PaymentMethod? _paymentMethod;
+    Affiliation? _affiliation;
     
     public Employee(int id, string name, string address)
     {
@@ -34,5 +35,10 @@ class Employee
         get => _paymentMethod;
         set => _paymentMethod = value;
     }
-    
+
+    public Affiliation? Affiliation
+    {
+        get => _affiliation;
+        set => _affiliation = value;
+    }
 }

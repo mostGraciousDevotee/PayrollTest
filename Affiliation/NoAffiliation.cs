@@ -1,0 +1,4 @@
+class NoAffiliation : Affiliation
+{
+    
+}

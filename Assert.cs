@@ -38,4 +38,17 @@ static class Assert
             return false;
         }
     }
+
+    public static bool AreEqual(double expected, double result, double tolerance, string message)
+    {
+        if (Math.Abs(expected - result) <= tolerance)
+        {
+            return true;
+        }
+        else
+        {
+            Console.WriteLine(message);
+            return false;
+        }
+    }
 }
