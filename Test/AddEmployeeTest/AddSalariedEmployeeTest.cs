@@ -21,7 +21,6 @@ class AddSalariedEmployeeTest : EmployeeTest
         bool scheduleAdded;
         bool methodAdded;
         
-        int employeeID = 1;
         var addSalariedEmployee = new AddSalariedEmployee
         (
             _id,
@@ -32,7 +31,7 @@ class AddSalariedEmployeeTest : EmployeeTest
 
         addSalariedEmployee.Execute();
 
-        Employee? employee = Database.GetEmployee(employeeID);
+        Employee? employee = Database.GetEmployee(_id);
 
         Assert.IsNotNull<Employee>
         (
