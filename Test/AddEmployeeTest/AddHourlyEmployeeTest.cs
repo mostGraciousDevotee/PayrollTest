@@ -1,5 +1,7 @@
-class AddHourlyEmployeeTest : EmployeeTest
+class AddHourlyEmployeeTest : AddEmployeeTest
 {   
+    double _hourlyRate = 250.0f;
+    
     public AddHourlyEmployeeTest
     (
         int id,
@@ -15,66 +17,34 @@ class AddHourlyEmployeeTest : EmployeeTest
     {
     }
 
-    public override bool Test()
+    protected override void AddEmployee()
     {
-        bool nameAdded;
-        bool paymentAdded;
-        bool scheduleAdded;
-        bool methodAdded;
-        
-        int employeeID = 2;
         var addHourlyEmployee = new AddHourlyEmployee
         (
             _id,
             _name,
             _address,
-            250.0f
+            _hourlyRate
         );
 
         addHourlyEmployee.Execute();
+    }
 
-        Employee? employee = Database.GetEmployee(employeeID);
-
-        Assert.IsNotNull<Employee>
-        (
-            employee,
-            "Failed to get employee"
-        );
-
-        if (employee == null)
-        {
-            return false;
-        }
-
-        nameAdded = Assert.AreEqual<string>
-        (
-            _name,
-            employee.Name,
-            "Failed to add employee name"
-        );
-
-        scheduleAdded = Assert.IsNotNull<PaymentSchedule>
-        (
-            employee.PaymentSchedule! as WeeklySchedule,
-            "Failed to add employee payment schedule"
-        );
-
-        paymentAdded = Assert.IsNotNull<Payment>
+    protected override bool TestPayment(Employee employee)
+    {
+        return Assert.IsNotNull<Payment>
         (
             employee.Payment as HourlyPayment,
-            "Failed to add salaried payment"
+            "Failed to add hourly payment"
         );
+    }
 
-        methodAdded = Assert.IsNotNull<PaymentMethod>
+    protected override bool TestPaymentSchedule(Employee employee)
+    {
+        return Assert.IsNotNull<PaymentSchedule>
         (
-            employee.PaymentMethod as HoldMethod,
-            "Failed to add hold method!"
+            employee.PaymentSchedule! as WeeklySchedule,
+            "Failed to add weekly payment schedule"
         );
-
-        return
-            nameAdded &&
-            paymentAdded &&
-            scheduleAdded &&
-            methodAdded;
     }
 }

@@ -43,4 +43,11 @@ testRunner.AddTest(new ChangeNameTest
     "Bandung"
 ));
 
+testRunner.AddTest(new AddCommisionedEmployeeTest
+(
+    7,
+    "Rhesa",
+    "Bandung"
+));
+
 testRunner.Run();

@@ -1,4 +1,4 @@
-class AddSalariedEmployeeTest : EmployeeTest
+class AddSalariedEmployeeTest : AddEmployeeTest
 {
     double _salary = 1000.0f;
     
@@ -13,14 +13,9 @@ class AddSalariedEmployeeTest : EmployeeTest
         name,
         address
     ) {}
-    
-    public override bool Test()
+
+    protected override void AddEmployee()
     {
-        bool nameAdded;
-        bool paymentAdded;
-        bool scheduleAdded;
-        bool methodAdded;
-        
         var addSalariedEmployee = new AddSalariedEmployee
         (
             _id,
@@ -30,49 +25,23 @@ class AddSalariedEmployeeTest : EmployeeTest
         );
 
         addSalariedEmployee.Execute();
+    }
 
-        Employee? employee = Database.GetEmployee(_id);
-
-        Assert.IsNotNull<Employee>
-        (
-            employee,
-            "Failed to add employee!"
-        );
-
-        if (employee == null)
-        {
-            return false;
-        }
-        
-        nameAdded = Assert.AreEqual<string>
-        (
-            _name,
-            employee.Name,
-            "Failed to add employee name"
-        );
-
-        scheduleAdded = Assert.IsNotNull<PaymentSchedule>
-        (
-            employee.PaymentSchedule! as MonthlySchedule,
-            "Failed to add employee payment schedule"
-        );
-
-        paymentAdded = Assert.IsNotNull<Payment>
+    protected override bool TestPayment(Employee employee)
+    {
+        return Assert.IsNotNull<Payment>
         (
             employee.Payment as SalariedPayment,
             "Failed to add salaried payment"
         );
+    }
 
-        methodAdded = Assert.IsNotNull<PaymentMethod>
+    protected override bool TestPaymentSchedule(Employee employee)
+    {
+        return Assert.IsNotNull<PaymentSchedule>
         (
-            employee.PaymentMethod as HoldMethod,
-            "Failed to add hold method!"
+            employee.PaymentSchedule! as MonthlySchedule,
+            "Failed to add monthly payment schedule"
         );
-
-        return
-            nameAdded &&
-            paymentAdded &&
-            scheduleAdded &&
-            methodAdded;
     }
 }

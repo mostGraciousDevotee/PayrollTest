@@ -38,9 +38,9 @@ abstract class AddEmployeeTest : EmployeeTest
             "Failed to add employee name"
         );
 
-        paymentAdded = TestPayment();
-        scheduleAdded = TestPaymentSchedule();
-        methodAdded = TestPaymentMethod();
+        paymentAdded = TestPayment(employee);
+        scheduleAdded = TestPaymentSchedule(employee);
+        methodAdded = TestPaymentMethod(employee);
 
         return
             nameAdded &&
@@ -50,7 +50,14 @@ abstract class AddEmployeeTest : EmployeeTest
     }
 
     abstract protected void AddEmployee();
-    abstract protected bool TestPayment();
-    abstract protected bool TestPaymentSchedule();
-    abstract protected bool TestPaymentMethod();
+    abstract protected bool TestPayment(Employee employee);
+    abstract protected bool TestPaymentSchedule(Employee employee);
+    bool TestPaymentMethod(Employee employee)
+    {
+        return Assert.IsNotNull<PaymentMethod>
+        (
+            employee.PaymentMethod as HoldMethod,
+            "Failed to add hold method!"
+        );
+    }
 }
