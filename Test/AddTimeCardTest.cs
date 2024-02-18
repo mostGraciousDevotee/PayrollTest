@@ -42,7 +42,7 @@ class AddTimeCardTest : EmployeeTest
             "Failed to get hourly payement!"
         );
 
-        if (!paymentAdded) return false;
+        if (paymentAdded == false) return false;
 
         var timeCard = hourlyPayment!.GetTimeCard(_date);
         bool timeCardAdded = Assert.IsNotNull<TimeCard>(timeCard, "Failed to get time card");

@@ -20,7 +20,7 @@ class AddSalesReceipt : ITransaction
             var payment = employee.Payment as CommisionedPayment;
             if (payment != null)
             {
-
+                payment.AddSalesReceipt(new SalesReceipt(_date, _amount));
             }
             else
             {

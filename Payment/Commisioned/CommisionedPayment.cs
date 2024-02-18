@@ -10,5 +10,13 @@ class CommisionedPayment : Payment
         _commisionRate = commisionRate;
     }
 
-    // public void AddSalesReceipt(int date, )
+    public void AddSalesReceipt(SalesReceipt salesReceipt)
+    {
+        _salesReceipts.Add(salesReceipt.Date, salesReceipt);
+    }
+
+    public SalesReceipt GetSalesReceipt(int date)
+    {
+        return _salesReceipts[date];
+    }
 }

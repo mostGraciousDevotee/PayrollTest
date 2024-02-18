@@ -47,8 +47,9 @@ class AddSalesReceiptTest : EmployeeTest
 
         if (paymentAdded == false) return false;
 
-        // var salesReceipt = commisionedPayment!
+        var salesReceipt = commisionedPayment!.GetSalesReceipt(_date);
+        bool salesReceiptAdded = Assert.IsNotNull<SalesReceipt>(salesReceipt, "Failed to get sales receipt");
 
-        return false;
+        return salesReceiptAdded;
     }
 }

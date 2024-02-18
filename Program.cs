@@ -50,4 +50,11 @@ testRunner.AddTest(new AddCommisionedEmployeeTest
     "Bandung"
 ));
 
+testRunner.AddTest(new AddSalesReceiptTest
+(
+    8,
+    "Jeffri",
+    "Jakarta"
+));
+
 testRunner.Run();
