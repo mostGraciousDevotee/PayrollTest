@@ -1,30 +1,30 @@
-class AddTimeCard : ITransaction
+class AddSalesReceipt : ITransaction
 {
     int _date;
-    double _hours;
+    double _amount;    
     int _employeeID;
-    
-    public AddTimeCard(int date, double hours, int employeeID)
+
+    public AddSalesReceipt(int date, double amount, int employeeID)
     {
         _date = date;
-        _hours = hours;
+        _amount = amount;
         _employeeID = employeeID;
     }
-    
+
     public void Execute()
     {
         Employee? employee = Database.GetEmployee(_employeeID);
 
         if (employee != null)
         {
-            var payment = employee.Payment as HourlyPayment;
+            var payment = employee.Payment as CommisionedPayment;
             if (payment != null)
             {
-                payment.AddTimeCard(new TimeCard(_date, _hours));
+
             }
             else
             {
-                throw new Exception("Tried to add timecard to non-hourly employee");
+                throw new Exception("Tried to add salesReceipt to non-commisioned employee!");
             }
         }
         else

@@ -8,10 +8,9 @@ class HourlyPayment : Payment
         _rate = rate;
     }
 
-    public void AddTimeCard(int date, double hours)
+    public void AddTimeCard(TimeCard timeCard)
     {
-        var timeCard = new TimeCard(date, hours);
-        _timeCards.Add(date, timeCard);
+        _timeCards.Add(timeCard.Date, timeCard);
     }
     
     public TimeCard GetTimeCard(int date)
