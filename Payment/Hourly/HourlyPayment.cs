@@ -8,6 +8,8 @@ class HourlyPayment : Payment
         _rate = rate;
     }
 
+    public double Rate => _rate;
+
     public void AddTimeCard(TimeCard timeCard)
     {
         _timeCards.Add(timeCard.Date, timeCard);

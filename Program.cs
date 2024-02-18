@@ -57,4 +57,11 @@ testRunner.AddTest(new AddSalesReceiptTest
     "Jakarta"
 ));
 
+testRunner.AddTest(new ChangeHourlyTest
+(
+    9,
+    "Tono",
+    "Sumedang"
+));
+
 testRunner.Run();
